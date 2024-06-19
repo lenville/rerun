@@ -236,7 +236,7 @@ impl VisualizerSystem for CamerasVisualizer {
                     ctx.recording()
                         .latest_at_component::<Transform3D>(&data_result.entity_path, &time_query)
                         .map(|c| c.value),
-                    pinhole.camera_xyz.unwrap_or(ViewCoordinates::RDF), // TODO(#2641): This should come from archetype
+                    pinhole.camera_xyz.unwrap_or(ViewCoordinates::RDF), // TODO(andreas): use fallback provider
                     entity_highlight,
                 );
             }

@@ -51,38 +51,6 @@ impl<'a> HybridLatestAtResults<'a> {
         }
     }
 
-    /// Returns the [`LatestAtComponentResults`] for the specified [`Component`].
-    ///
-    /// Returns an error if the component is not present.
-    #[inline]
-    pub fn get_required(
-        &self,
-        component_name: impl Into<ComponentName>,
-    ) -> re_query::Result<&LatestAtComponentResults> {
-        let component_name = component_name.into();
-        if self.overrides.contains(component_name) {
-            self.overrides.get_required(component_name)
-        } else {
-            self.results.get_required(component_name)
-        }
-    }
-
-    /// Returns the [`LatestAtComponentResults`] for the specified [`Component`].
-    ///
-    /// Returns empty results if the component is not present.
-    #[inline]
-    pub fn get_or_empty(
-        &self,
-        component_name: impl Into<ComponentName>,
-    ) -> &LatestAtComponentResults {
-        let component_name = component_name.into();
-        if self.overrides.contains(component_name) {
-            self.overrides.get_or_empty(component_name)
-        } else {
-            self.results.get_or_empty(component_name)
-        }
-    }
-
     pub fn try_fallback_raw(
         &self,
         component_name: ComponentName,
@@ -426,10 +394,40 @@ impl<'a> RangeResultsExt for HybridLatestAtResults<'a> {
 
             Some(Ok(data))
         } else {
-            self.results.get_dense(resolver)
+            let data = self.results.get_dense(resolver);
+
+            // If the data is not empty, return it.
+            if let Some(data) = data {
+                return Some(data);
+            }
+
+            // Otherwise try to use the default data.
+            let results = self.defaults.get(C::name())?;
+
+            // Because this is an default from the blueprint we always re-index the data as static
+            let data =
+                RangeData::from_latest_at(resolver, results, Some((TimeInt::STATIC, RowId::ZERO)));
+
+            // TODO(#5607): what should happen if the promise is still pending?
+            let (front_status, back_status) = data.status();
+            match front_status {
+                PromiseResult::Error(err) => {
+                    return Some(Err(re_query::QueryError::Other(err.into())))
+                }
+                PromiseResult::Pending | PromiseResult::Ready(_) => {}
+            }
+            match back_status {
+                PromiseResult::Error(err) => {
+                    return Some(Err(re_query::QueryError::Other(err.into())))
+                }
+                PromiseResult::Pending | PromiseResult::Ready(_) => {}
+            }
+
+            Some(Ok(data))
         }
     }
 
+    // TODO(andreas): remove this?
     #[inline]
     fn get_or_empty_dense<'b, C: Component>(
         &'b self,
