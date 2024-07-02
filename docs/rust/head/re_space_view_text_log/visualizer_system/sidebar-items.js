@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["check_range"],"struct":["Entry","TextLogSystem"]};
+window.SIDEBAR_ITEMS = {"struct":["Entry","TextLogSystem"]};

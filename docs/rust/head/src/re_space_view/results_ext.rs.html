@@ -532,6 +532,19 @@
 <a href="#531" id="531">531</a>
 <a href="#532" id="532">532</a>
 <a href="#533" id="533">533</a>
+<a href="#534" id="534">534</a>
+<a href="#535" id="535">535</a>
+<a href="#536" id="536">536</a>
+<a href="#537" id="537">537</a>
+<a href="#538" id="538">538</a>
+<a href="#539" id="539">539</a>
+<a href="#540" id="540">540</a>
+<a href="#541" id="541">541</a>
+<a href="#542" id="542">542</a>
+<a href="#543" id="543">543</a>
+<a href="#544" id="544">544</a>
+<a href="#545" id="545">545</a>
+<a href="#546" id="546">546</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>re_data_store::{LatestAtQuery, RangeQuery};
 <span class="kw">use </span>re_log_types::{external::arrow2, hash::Hash64, RowId, TimeInt};
 <span class="kw">use </span>re_query::{
@@ -606,6 +619,12 @@
             .ok()
     }
 
+    <span class="doccomment">/// Utility for retrieving a single instance of a component, ignoring defaults.
+    </span><span class="attr">#[inline]
+    </span><span class="kw">pub fn </span>get_required_mono&lt;T: re_types_core::Component&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt; {
+        <span class="self">self</span>.get_required_instance(<span class="number">0</span>)
+    }
+
     <span class="doccomment">/// Utility for retrieving a single instance of a component.
     </span><span class="attr">#[inline]
     </span><span class="kw">pub fn </span>get_mono&lt;T: re_types_core::Component&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt; {
@@ -618,11 +637,11 @@
         <span class="self">self</span>.get_instance_with_fallback(<span class="number">0</span>)
     }
 
-    <span class="doccomment">/// Utility for retrieving a single instance of a component.
+    <span class="doccomment">/// Utility for retrieving a single instance of a component, not checking for defaults.
     ///
-    /// If overrides or defaults are present, they will only be used respectively if they have a component at the specified index.
+    /// If overrides are present, they will only be used respectively if they have a component at the specified index.
     </span><span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>get_instance&lt;T: re_types_core::Component&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, index: usize) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt; {
+    </span><span class="kw">pub fn </span>get_required_instance&lt;T: re_types_core::Component&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, index: usize) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt; {
         <span class="kw">let </span>component_name = T::name();
 
         <span class="self">self</span>.overrides
@@ -633,17 +652,24 @@
                 </span><span class="self">self</span>.results
                     .get(component_name)
                     .and_then(|r| r.try_instance::&lt;T&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>.resolver, index)))
-            .or_else(|| {
-                <span class="comment">// No override &amp; no store -&gt; try default instead
-                </span><span class="self">self</span>.defaults
-                    .get(T::name())
-                    .and_then(|r| r.try_instance::&lt;T&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>.resolver, <span class="number">0</span>))
-            })
     }
 
     <span class="doccomment">/// Utility for retrieving a single instance of a component.
     ///
-    /// If overrides or defaults are present, they will only be used respectively if they have a component at the specified index.
+    /// If overrides are present, they will only be used respectively if they have a component at the specified index.
+    </span><span class="attr">#[inline]
+    </span><span class="kw">pub fn </span>get_instance&lt;T: re_types_core::Component&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, index: usize) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt; {
+        <span class="self">self</span>.get_required_instance(index).or_else(|| {
+            <span class="comment">// No override &amp; no store -&gt; try default instead
+            </span><span class="self">self</span>.defaults
+                .get(T::name())
+                .and_then(|r| r.try_instance::&lt;T&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>.resolver, <span class="number">0</span>))
+        })
+    }
+
+    <span class="doccomment">/// Utility for retrieving a single instance of a component.
+    ///
+    /// If overrides are present, they will only be used respectively if they have a component at the specified index.
     </span><span class="attr">#[inline]
     </span><span class="kw">pub fn </span>get_instance_with_fallback&lt;T: re_types_core::Component + Default&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,

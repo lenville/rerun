@@ -3,9 +3,9 @@
     // Required method
     fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
         &amp;self,
-        ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+        ctx: &amp;ViewerContext&lt;'_&gt;,
         ui: &amp;mut Ui,
-        ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+        ui_layout: UiLayout,
         query: &amp;LatestAtQuery,
         db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
     );
@@ -13,289 +13,289 @@
     // Provided method
     fn <a href="#method.data_ui_recording" class="fn">data_ui_recording</a>(
         &amp;self,
-        ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+        ctx: &amp;ViewerContext&lt;'_&gt;,
         ui: &amp;mut Ui,
-        ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>
+        ui_layout: UiLayout
     ) { ... }
 }</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Types implementing <a href="trait.DataUi.html" title="trait re_data_ui::DataUi"><code>DataUi</code></a> can display themselves in an [<code>egui::Ui</code>].</p>
 </div></details><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="tymethod.data_ui" class="method"><a class="src rightside" href="../src/re_data_ui/lib.rs.html#57-64">source</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></summary><div class="docblock"><p>If you need to lookup something in the data store, use the given query to do so.</p>
 </div></details></div><h2 id="provided-methods" class="section-header">Provided Methods<a href="#provided-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="method.data_ui_recording" class="method"><a class="src rightside" href="../src/re_data_ui/lib.rs.html#67-69">source</a><h4 class="code-header">fn <a href="#method.data_ui_recording" class="fn">data_ui_recording</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>
+    ui_layout: UiLayout
 )</h4></section></summary><div class="docblock"><p>Called <a href="trait.DataUi.html#tymethod.data_ui"><code>Self::data_ui</code></a> using the default query and recording.</p>
 </div></details></div><h2 id="foreign-impls" class="section-header">Implementations on Foreign Types<a href="#foreign-impls" class="anchor">§</a></h2><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-EntityDb" class="impl"><a class="src rightside" href="../src/re_data_ui/entity_db.rs.html#9-167">source</a><a href="#impl-DataUi-for-EntityDb" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for <a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a></h3></section></summary><div class="impl-items"><section id="method.data_ui" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/entity_db.rs.html#10-166">source</a><a href="#method.data_ui" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-InstancePath" class="impl"><a class="src rightside" href="../src/re_data_ui/instance_path.rs.html#8-160">source</a><a href="#impl-DataUi-for-InstancePath" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for <a class="struct" href="../re_entity_db/instance_path/struct.InstancePath.html" title="struct re_entity_db::instance_path::InstancePath">InstancePath</a></h3></section></summary><div class="impl-items"><section id="method.data_ui-1" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/instance_path.rs.html#9-159">source</a><a href="#method.data_ui-1" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-IncludedSpaceView" class="impl"><a class="src rightside" href="../src/re_data_ui/blueprint_types.rs.html#8-21">source</a><a href="#impl-DataUi-for-IncludedSpaceView" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for <a class="struct" href="../re_types_blueprint/blueprint/components/_components/included_space_view/struct.IncludedSpaceView.html" title="struct re_types_blueprint::blueprint::components::_components::included_space_view::IncludedSpaceView">IncludedSpaceView</a></h3></section></summary><div class="impl-items"><section id="method.data_ui-2" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/blueprint_types.rs.html#10-20">source</a><a href="#method.data_ui-2" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-SpaceViewMaximized" class="impl"><a class="src rightside" href="../src/re_data_ui/blueprint_types.rs.html#23-36">source</a><a href="#impl-DataUi-for-SpaceViewMaximized" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for <a class="struct" href="../re_types_blueprint/blueprint/components/_components/space_view_maximized/struct.SpaceViewMaximized.html" title="struct re_types_blueprint::blueprint::components::_components::space_view_maximized::SpaceViewMaximized">SpaceViewMaximized</a></h3></section></summary><div class="impl-items"><section id="method.data_ui-3" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/blueprint_types.rs.html#25-35">source</a><a href="#method.data_ui-3" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-AnnotationContext" class="impl"><a class="src rightside" href="../src/re_data_ui/annotation_context.rs.html#110-157">source</a><a href="#impl-DataUi-for-AnnotationContext" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for AnnotationContext</h3></section></summary><div class="impl-items"><section id="method.data_ui-4" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/annotation_context.rs.html#111-156">source</a><a href="#method.data_ui-4" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-ApplicationId" class="impl"><a class="src rightside" href="../src/re_data_ui/app_id.rs.html#9-106">source</a><a href="#impl-DataUi-for-ApplicationId" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for ApplicationId</h3></section></summary><div class="impl-items"><section id="method.data_ui-5" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/app_id.rs.html#10-105">source</a><a href="#method.data_ui-5" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-ArrowMsg" class="impl"><a class="src rightside" href="../src/re_data_ui/log_msg.rs.html#99-143">source</a><a href="#impl-DataUi-for-ArrowMsg" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for ArrowMsg</h3></section></summary><div class="impl-items"><section id="method.data_ui-6" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/log_msg.rs.html#100-142">source</a><a href="#method.data_ui-6" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-ComponentName" class="impl"><a class="src rightside" href="../src/re_data_ui/component_name.rs.html#7-46">source</a><a href="#impl-DataUi-for-ComponentName" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for ComponentName</h3></section></summary><div class="impl-items"><section id="method.data_ui-7" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/component_name.rs.html#8-45">source</a><a href="#method.data_ui-7" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-ComponentPath" class="impl"><a class="src rightside" href="../src/re_data_ui/component_path.rs.html#7-51">source</a><a href="#impl-DataUi-for-ComponentPath" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for ComponentPath</h3></section></summary><div class="impl-items"><section id="method.data_ui-8" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/component_path.rs.html#8-50">source</a><a href="#method.data_ui-8" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-EntityPath" class="impl"><a class="src rightside" href="../src/re_data_ui/entity_path.rs.html#6-17">source</a><a href="#impl-DataUi-for-EntityPath" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for EntityPath</h3></section></summary><div class="impl-items"><section id="method.data_ui-9" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/entity_path.rs.html#7-16">source</a><a href="#method.data_ui-9" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-LineStrip2D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#158-204">source</a><a href="#impl-DataUi-for-LineStrip2D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for LineStrip2D</h3></section></summary><div class="impl-items"><section id="method.data_ui-10" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#159-203">source</a><a href="#method.data_ui-10" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-LineStrip3D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#206-258">source</a><a href="#impl-DataUi-for-LineStrip3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for LineStrip3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-11" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#207-257">source</a><a href="#method.data_ui-11" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-LogMsg" class="impl"><a class="src rightside" href="../src/re_data_ui/log_msg.rs.html#10-33">source</a><a href="#impl-DataUi-for-LogMsg" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for LogMsg</h3></section></summary><div class="impl-items"><section id="method.data_ui-12" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/log_msg.rs.html#11-32">source</a><a href="#method.data_ui-12" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Mat3x3" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#39-65">source</a><a href="#impl-DataUi-for-Mat3x3" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Mat3x3</h3></section></summary><div class="impl-items"><section id="method.data_ui-13" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#40-64">source</a><a href="#method.data_ui-13" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    _ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    _ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-OutOfTreeTransform3D" class="impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#49-61">source</a><a href="#impl-DataUi-for-OutOfTreeTransform3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for OutOfTreeTransform3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-14" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#51-60">source</a><a href="#method.data_ui-14" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-PinholeProjection" class="impl"><a class="src rightside" href="../src/re_data_ui/pinhole.rs.html#6-38">source</a><a href="#impl-DataUi-for-PinholeProjection" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for PinholeProjection</h3></section></summary><div class="impl-items"><section id="method.data_ui-15" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/pinhole.rs.html#7-37">source</a><a href="#method.data_ui-15" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Resolution" class="impl"><a class="src rightside" href="../src/re_data_ui/pinhole.rs.html#40-52">source</a><a href="#impl-DataUi-for-Resolution" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Resolution</h3></section></summary><div class="impl-items"><section id="method.data_ui-16" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/pinhole.rs.html#41-51">source</a><a href="#method.data_ui-16" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Rotation3D" class="impl"><a class="src rightside" href="../src/re_data_ui/rotation3d.rs.html#9-20">source</a><a href="#impl-DataUi-for-Rotation3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Rotation3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-17" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/rotation3d.rs.html#10-19">source</a><a href="#method.data_ui-17" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Rotation3D-1" class="impl"><a class="src rightside" href="../src/re_data_ui/rotation3d.rs.html#22-66">source</a><a href="#impl-DataUi-for-Rotation3D-1" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Rotation3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-18" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/rotation3d.rs.html#23-65">source</a><a href="#method.data_ui-18" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Scale3D" class="impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#136-154">source</a><a href="#impl-DataUi-for-Scale3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Scale3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-19" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#137-153">source</a><a href="#method.data_ui-19" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-SetStoreInfo" class="impl"><a class="src rightside" href="../src/re_data_ui/log_msg.rs.html#35-97">source</a><a href="#impl-DataUi-for-SetStoreInfo" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for SetStoreInfo</h3></section></summary><div class="impl-items"><section id="method.data_ui-20" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/log_msg.rs.html#36-96">source</a><a href="#method.data_ui-20" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    _ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    _ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-SmartChannelSource" class="impl"><a class="src rightside" href="../src/re_data_ui/data_source.rs.html#6-72">source</a><a href="#impl-DataUi-for-SmartChannelSource" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for SmartChannelSource</h3></section></summary><div class="impl-items"><section id="method.data_ui-21" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data_source.rs.html#7-71">source</a><a href="#method.data_ui-21" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-StoreId" class="impl"><a class="src rightside" href="../src/re_data_ui/store_id.rs.html#3-18">source</a><a href="#impl-DataUi-for-StoreId" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for StoreId</h3></section></summary><div class="impl-items"><section id="method.data_ui-22" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/store_id.rs.html#4-17">source</a><a href="#method.data_ui-22" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-TimePoint" class="impl"><a class="src rightside" href="../src/re_data_ui/lib.rs.html#111-131">source</a><a href="#impl-DataUi-for-TimePoint" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for TimePoint</h3></section></summary><div class="impl-items"><section id="method.data_ui-23" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/lib.rs.html#112-130">source</a><a href="#method.data_ui-23" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    _ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    _ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Transform3D" class="impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#6-47">source</a><a href="#impl-DataUi-for-Transform3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Transform3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-24" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#8-46">source</a><a href="#method.data_ui-24" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Transform3D-1" class="impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#63-92">source</a><a href="#impl-DataUi-for-Transform3D-1" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Transform3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-25" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#65-91">source</a><a href="#method.data_ui-25" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-TranslationAndMat3x3" class="impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#156-187">source</a><a href="#impl-DataUi-for-TranslationAndMat3x3" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for TranslationAndMat3x3</h3></section></summary><div class="impl-items"><section id="method.data_ui-26" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#157-186">source</a><a href="#method.data_ui-26" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-TranslationRotationScale3D" class="impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#94-134">source</a><a href="#impl-DataUi-for-TranslationRotationScale3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for TranslationRotationScale3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-27" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/transform3d.rs.html#95-133">source</a><a href="#method.data_ui-27" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-UVec2D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#106-117">source</a><a href="#impl-DataUi-for-UVec2D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for UVec2D</h3></section></summary><div class="impl-items"><section id="method.data_ui-28" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#107-116">source</a><a href="#method.data_ui-28" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-UVec3D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#119-130">source</a><a href="#impl-DataUi-for-UVec3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for UVec3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-29" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#120-129">source</a><a href="#method.data_ui-29" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-UVec4D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#132-143">source</a><a href="#impl-DataUi-for-UVec4D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for UVec4D</h3></section></summary><div class="impl-items"><section id="method.data_ui-30" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#133-142">source</a><a href="#method.data_ui-30" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Vec2D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#67-78">source</a><a href="#impl-DataUi-for-Vec2D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Vec2D</h3></section></summary><div class="impl-items"><section id="method.data_ui-31" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#68-77">source</a><a href="#method.data_ui-31" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Vec3D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#80-91">source</a><a href="#impl-DataUi-for-Vec3D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Vec3D</h3></section></summary><div class="impl-items"><section id="method.data_ui-32" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#81-90">source</a><a href="#method.data_ui-32" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-Vec4D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#93-104">source</a><a href="#impl-DataUi-for-Vec4D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for Vec4D</h3></section></summary><div class="impl-items"><section id="method.data_ui-33" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#94-103">source</a><a href="#method.data_ui-33" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-ViewCoordinates" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#15-37">source</a><a href="#impl-DataUi-for-ViewCoordinates" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for ViewCoordinates</h3></section></summary><div class="impl-items"><section id="method.data_ui-34" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#16-36">source</a><a href="#method.data_ui-34" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-VisualBounds2D" class="impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#145-156">source</a><a href="#impl-DataUi-for-VisualBounds2D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for VisualBounds2D</h3></section></summary><div class="impl-items"><section id="method.data_ui-35" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/data.rs.html#146-155">source</a><a href="#method.data_ui-35" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-%5BDataCell%5D" class="impl"><a class="src rightside" href="../src/re_data_ui/lib.rs.html#133-161">source</a><a href="#impl-DataUi-for-%5BDataCell%5D" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for [DataCell]</h3></section></summary><div class="impl-items"><section id="method.data_ui-36" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/lib.rs.html#134-160">source</a><a href="#method.data_ui-36" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    _ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    _ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    ui_layout: UiLayout,
     _query: &amp;LatestAtQuery,
     _db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
-)</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-BlueprintId%3CT%3E" class="impl"><a class="src rightside" href="../src/re_data_ui/blueprint_data.rs.html#5-25">source</a><a href="#impl-DataUi-for-BlueprintId%3CT%3E" class="anchor">§</a><h3 class="code-header">impl&lt;T: <a class="trait" href="../re_viewer_context/blueprint_id/trait.BlueprintIdRegistry.html" title="trait re_viewer_context::blueprint_id::BlueprintIdRegistry">BlueprintIdRegistry</a>&gt; <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for <a class="struct" href="../re_viewer_context/blueprint_id/struct.BlueprintId.html" title="struct re_viewer_context::blueprint_id::BlueprintId">BlueprintId</a>&lt;T&gt;</h3></section></summary><div class="impl-items"><section id="method.data_ui-37" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/blueprint_data.rs.html#7-24">source</a><a href="#method.data_ui-37" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
+)</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-DataUi-for-BlueprintId%3CT%3E" class="impl"><a class="src rightside" href="../src/re_data_ui/blueprint_data.rs.html#5-25">source</a><a href="#impl-DataUi-for-BlueprintId%3CT%3E" class="anchor">§</a><h3 class="code-header">impl&lt;T: BlueprintIdRegistry&gt; <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for BlueprintId&lt;T&gt;</h3></section></summary><div class="impl-items"><section id="method.data_ui-37" class="method trait-impl"><a class="src rightside" href="../src/re_data_ui/blueprint_data.rs.html#7-24">source</a><a href="#method.data_ui-37" class="anchor">§</a><h4 class="code-header">fn <a href="#tymethod.data_ui" class="fn">data_ui</a>(
     &amp;self,
-    ctx: &amp;<a class="struct" href="../re_viewer_context/viewer_context/struct.ViewerContext.html" title="struct re_viewer_context::viewer_context::ViewerContext">ViewerContext</a>&lt;'_&gt;,
+    ctx: &amp;ViewerContext&lt;'_&gt;,
     ui: &amp;mut Ui,
-    _ui_layout: <a class="enum" href="../re_viewer_context/component_ui_registry/enum.UiLayout.html" title="enum re_viewer_context::component_ui_registry::UiLayout">UiLayout</a>,
+    _ui_layout: UiLayout,
     query: &amp;LatestAtQuery,
     db: &amp;<a class="struct" href="../re_entity_db/entity_db/struct.EntityDb.html" title="struct re_entity_db::entity_db::EntityDb">EntityDb</a>
 )</h4></section></div></details><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-DataUi-for-EntityLatestAtResults%3C'a%3E" class="impl"><a class="src rightside" href="../src/re_data_ui/component.rs.html#17-205">source</a><a href="#impl-DataUi-for-EntityLatestAtResults%3C'a%3E" class="anchor">§</a><h3 class="code-header">impl&lt;'a&gt; <a class="trait" href="trait.DataUi.html" title="trait re_data_ui::DataUi">DataUi</a> for <a class="struct" href="component/struct.EntityLatestAtResults.html" title="struct re_data_ui::component::EntityLatestAtResults">EntityLatestAtResults</a>&lt;'a&gt;</h3></section></div><script src="../trait.impl/re_data_ui/trait.DataUi.js" data-ignore-extern-crates="re_entity_db,re_viewer_context,re_types_blueprint,re_types_core,std,re_smart_channel,re_types,re_log_types" async></script></section></div></main></body></html>

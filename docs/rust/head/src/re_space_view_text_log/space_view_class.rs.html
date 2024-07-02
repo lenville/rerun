@@ -452,13 +452,6 @@
 <a href="#451" id="451">451</a>
 <a href="#452" id="452">452</a>
 <a href="#453" id="453">453</a>
-<a href="#454" id="454">454</a>
-<a href="#455" id="455">455</a>
-<a href="#456" id="456">456</a>
-<a href="#457" id="457">457</a>
-<a href="#458" id="458">458</a>
-<a href="#459" id="459">459</a>
-<a href="#460" id="460">460</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>std::collections::BTreeMap;
 
 <span class="kw">use </span>re_data_ui::item_ui;
@@ -729,7 +722,9 @@
     <span class="kw">if let </span><span class="prelude-val">Some</span>((time_point, <span class="kw">_</span>)) = ctx.recording_store().row_metadata(<span class="kw-2">&amp;</span>entry.row_id) {
         <span class="prelude-val">Some</span>(time_point.clone())
     } <span class="kw">else </span>{
-        <span class="macro">re_log::warn_once!</span>(<span class="string">"Missing metadata for {:?}"</span>, entry.entity_path);
+        <span class="kw">if </span>!entry.time.is_static() {
+            <span class="macro">re_log::warn_once!</span>(<span class="string">"Missing metadata for {:?}"</span>, entry.entity_path);
+        }
         <span class="prelude-val">None
     </span>}
 }
@@ -822,39 +817,30 @@
             body.heterogeneous_rows(row_heights, |<span class="kw-2">mut </span>row| {
                 <span class="kw">let </span>entry = <span class="kw-2">&amp;</span>entries[row.index()];
 
-                <span class="comment">// NOTE: `try_from_props` is where we actually fetch data from the underlying
-                // store, which is a costly operation.
-                // Doing this here guarantees that it only happens for visible rows.
-                </span><span class="kw">let </span><span class="prelude-val">Some</span>(time_point) = get_time_point(ctx, entry) <span class="kw">else </span>{
-                    row.col(|ui| {
-                        ui.colored_label(
-                            egui::Color32::RED,
-                            <span class="string">"&lt;failed to load TextLog from data store&gt;"</span>,
-                        );
-                    });
-                    <span class="kw">return</span>;
-                };
-
                 <span class="comment">// timeline(s)
-                </span><span class="kw">for </span>timeline <span class="kw">in </span><span class="kw-2">&amp;</span>timelines {
+                </span><span class="kw">let </span>time_point = get_time_point(ctx, entry);
+                <span class="kw">for </span>timeline <span class="kw">in </span><span class="kw-2">&amp;</span>timelines {
                     row.col(|ui| {
-                        <span class="kw">if let </span><span class="prelude-val">Some</span>(row_time) = time_point.get(timeline).copied() {
-                            item_ui::time_button(ctx, ui, timeline, row_time);
+                        <span class="kw">let </span>row_time = time_point
+                            .as_ref()
+                            .and_then(|t| t.get(timeline))
+                            .copied()
+                            .unwrap_or(re_log_types::TimeInt::STATIC);
+                        item_ui::time_button(ctx, ui, timeline, row_time);
 
-                            <span class="kw">if let </span><span class="prelude-val">Some</span>(global_time) = global_time {
-                                <span class="kw">if </span><span class="kw-2">*</span>timeline == <span class="kw-2">&amp;</span>global_timeline {
-                                    <span class="attr">#[allow(clippy::comparison_chain)]
-                                    </span><span class="kw">if </span>global_time &lt; row_time {
-                                        <span class="comment">// We've past the global time - it is thus above this row.
-                                        </span><span class="kw">if </span>current_time_y.is_none() {
-                                            current_time_y = <span class="prelude-val">Some</span>(ui.max_rect().top());
-                                        }
-                                    } <span class="kw">else if </span>global_time == row_time {
-                                        <span class="comment">// This row is exactly at the current time.
-                                        // We could draw the current time exactly onto this row, but that would look bad,
-                                        // so let's draw it under instead. It looks better in the "following" mode.
-                                        </span>current_time_y = <span class="prelude-val">Some</span>(ui.max_rect().bottom());
+                        <span class="kw">if let </span><span class="prelude-val">Some</span>(global_time) = global_time {
+                            <span class="kw">if </span><span class="kw-2">*</span>timeline == <span class="kw-2">&amp;</span>global_timeline {
+                                <span class="attr">#[allow(clippy::comparison_chain)]
+                                </span><span class="kw">if </span>global_time &lt; row_time {
+                                    <span class="comment">// We've past the global time - it is thus above this row.
+                                    </span><span class="kw">if </span>current_time_y.is_none() {
+                                        current_time_y = <span class="prelude-val">Some</span>(ui.max_rect().top());
                                     }
+                                } <span class="kw">else if </span>global_time == row_time {
+                                    <span class="comment">// This row is exactly at the current time.
+                                    // We could draw the current time exactly onto this row, but that would look bad,
+                                    // so let's draw it under instead. It looks better in the "following" mode.
+                                    </span>current_time_y = <span class="prelude-val">Some</span>(ui.max_rect().bottom());
                                 }
                             }
                         }

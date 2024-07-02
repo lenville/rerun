@@ -12,7 +12,7 @@
     query: &amp;<a class="struct" href="../re_data_store/struct.LatestAtQuery.html" title="struct re_space_view::external::re_data_store::LatestAtQuery">LatestAtQuery</a>,
     level: <a class="enum" href="https://docs.rs/log/0.4.17/log/enum.Level.html" title="enum log::Level">Level</a>
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.76.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="struct.LatestAtMonoResult.html" title="struct re_space_view::external::re_query::LatestAtMonoResult">LatestAtMonoResult</a>&lt;C&gt;&gt;<div class="where">where
-    C: Component,</div></h4></section></summary><div class="docblock"><p>Get the latest index and value for a given dense [<code>re_types_core::Component</code>].</p>
+    C: <a class="trait" href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component">Component</a>,</div></h4></section></summary><div class="docblock"><p>Get the latest index and value for a given dense <a href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component"><code>re_types_core::Component</code></a>.</p>
 <p>Returns <code>None</code> if the data is a promise that has yet to be resolved.</p>
 <p>This assumes that the row we get from the store contains at most one instance for this
 component; it will generate a log message of <code>level</code> otherwise.</p>
@@ -25,7 +25,7 @@ component; it will generate a log message of <code>level</code> otherwise.</p>
     entity_path: &amp;EntityPath,
     query: &amp;<a class="struct" href="../re_data_store/struct.LatestAtQuery.html" title="struct re_space_view::external::re_data_store::LatestAtQuery">LatestAtQuery</a>
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.76.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="struct.LatestAtMonoResult.html" title="struct re_space_view::external::re_query::LatestAtMonoResult">LatestAtMonoResult</a>&lt;C&gt;&gt;<div class="where">where
-    C: Component,</div></h4></section></summary><div class="docblock"><p>Get the latest index and value for a given dense [<code>re_types_core::Component</code>].</p>
+    C: <a class="trait" href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component">Component</a>,</div></h4></section></summary><div class="docblock"><p>Get the latest index and value for a given dense <a href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component"><code>re_types_core::Component</code></a>.</p>
 <p>This assumes that the row we get from the store contains at most one instance for this
 component; it will log a warning otherwise.</p>
 <p>This should only be used for “mono-components” such as <code>Transform</code> and <code>Tensor</code>.</p>
@@ -37,7 +37,7 @@ component; it will log a warning otherwise.</p>
     entity_path: &amp;EntityPath,
     query: &amp;<a class="struct" href="../re_data_store/struct.LatestAtQuery.html" title="struct re_space_view::external::re_data_store::LatestAtQuery">LatestAtQuery</a>
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.76.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="struct.LatestAtMonoResult.html" title="struct re_space_view::external::re_query::LatestAtMonoResult">LatestAtMonoResult</a>&lt;C&gt;&gt;<div class="where">where
-    C: Component,</div></h4></section></summary><div class="docblock"><p>Get the latest index and value for a given dense [<code>re_types_core::Component</code>].</p>
+    C: <a class="trait" href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component">Component</a>,</div></h4></section></summary><div class="docblock"><p>Get the latest index and value for a given dense <a href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component"><code>re_types_core::Component</code></a>.</p>
 <p>This assumes that the row we get from the store contains at most one instance for this
 component; it will return None and log a debug message otherwise.</p>
 <p>This should only be used for “mono-components” such as <code>Transform</code> and <code>Tensor</code>.</p>
@@ -49,13 +49,13 @@ component; it will return None and log a debug message otherwise.</p>
     entity_path: &amp;EntityPath,
     query: &amp;<a class="struct" href="../re_data_store/struct.LatestAtQuery.html" title="struct re_space_view::external::re_data_store::LatestAtQuery">LatestAtQuery</a>
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.76.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;(EntityPath, <a class="struct" href="struct.LatestAtMonoResult.html" title="struct re_space_view::external::re_query::LatestAtMonoResult">LatestAtMonoResult</a>&lt;C&gt;)&gt;<div class="where">where
-    C: Component,</div></h4></section></summary><div class="docblock"><p>Call <a href="struct.Caches.html#method.latest_at_component" title="method re_space_view::external::re_query::Caches::latest_at_component"><code>Self::latest_at_component</code></a> at the given path, walking up the hierarchy until an instance is found.</p>
+    C: <a class="trait" href="../../../re_types_core/loggable/trait.Component.html" title="trait re_types_core::loggable::Component">Component</a>,</div></h4></section></summary><div class="docblock"><p>Call <a href="struct.Caches.html#method.latest_at_component" title="method re_space_view::external::re_query::Caches::latest_at_component"><code>Self::latest_at_component</code></a> at the given path, walking up the hierarchy until an instance is found.</p>
 </div></details></div></details><details class="toggle implementors-toggle" open><summary><section id="impl-Caches-3" class="impl"><a class="src rightside" href="../../../src/re_query/latest_at/query.rs.html#17">source</a><a href="#impl-Caches-3" class="anchor">§</a><h3 class="code-header">impl <a class="struct" href="struct.Caches.html" title="struct re_space_view::external::re_query::Caches">Caches</a></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.latest_at" class="method"><a class="src rightside" href="../../../src/re_query/latest_at/query.rs.html#23-29">source</a><h4 class="code-header">pub fn <a href="#method.latest_at" class="fn">latest_at</a>(
     &amp;self,
     store: &amp;<a class="struct" href="../re_data_store/struct.DataStore.html" title="struct re_space_view::external::re_data_store::DataStore">DataStore</a>,
     query: &amp;<a class="struct" href="../re_data_store/struct.LatestAtQuery.html" title="struct re_space_view::external::re_data_store::LatestAtQuery">LatestAtQuery</a>,
     entity_path: &amp;EntityPath,
-    component_names: impl <a class="trait" href="https://doc.rust-lang.org/1.76.0/core/iter/traits/collect/trait.IntoIterator.html" title="trait core::iter::traits::collect::IntoIterator">IntoIterator</a>&lt;Item = ComponentName&gt;
+    component_names: impl <a class="trait" href="https://doc.rust-lang.org/1.76.0/core/iter/traits/collect/trait.IntoIterator.html" title="trait core::iter::traits::collect::IntoIterator">IntoIterator</a>&lt;Item = <a class="struct" href="../../../re_types_core/loggable/struct.ComponentName.html" title="struct re_types_core::loggable::ComponentName">ComponentName</a>&gt;
 ) -&gt; <a class="struct" href="struct.LatestAtResults.html" title="struct re_space_view::external::re_query::LatestAtResults">LatestAtResults</a></h4></section></summary><div class="docblock"><p>Queries for the given <code>component_names</code> using latest-at semantics.</p>
 <p>See <a href="struct.LatestAtResults.html" title="struct re_space_view::external::re_query::LatestAtResults"><code>LatestAtResults</code></a> for more information about how to handle the results.</p>
 <p>This is a cached API – data will be lazily cached upon access.</p>
@@ -64,7 +64,7 @@ component; it will return None and log a debug message otherwise.</p>
     store: &amp;<a class="struct" href="../re_data_store/struct.DataStore.html" title="struct re_space_view::external::re_data_store::DataStore">DataStore</a>,
     query: &amp;<a class="struct" href="../re_data_store/struct.RangeQuery.html" title="struct re_space_view::external::re_data_store::RangeQuery">RangeQuery</a>,
     entity_path: &amp;EntityPath,
-    component_names: impl <a class="trait" href="https://doc.rust-lang.org/1.76.0/core/iter/traits/collect/trait.IntoIterator.html" title="trait core::iter::traits::collect::IntoIterator">IntoIterator</a>&lt;Item = ComponentName&gt;
+    component_names: impl <a class="trait" href="https://doc.rust-lang.org/1.76.0/core/iter/traits/collect/trait.IntoIterator.html" title="trait core::iter::traits::collect::IntoIterator">IntoIterator</a>&lt;Item = <a class="struct" href="../../../re_types_core/loggable/struct.ComponentName.html" title="struct re_types_core::loggable::ComponentName">ComponentName</a>&gt;
 ) -&gt; <a class="struct" href="struct.RangeResults.html" title="struct re_space_view::external::re_query::RangeResults">RangeResults</a></h4></section></summary><div class="docblock"><p>Queries for the given <code>component_names</code> using range semantics.</p>
 <p>See <a href="struct.RangeResults.html" title="struct re_space_view::external::re_query::RangeResults"><code>RangeResults</code></a> for more information about how to handle the results.</p>
 <p>This is a cached API – data will be lazily cached upon access.</p>
